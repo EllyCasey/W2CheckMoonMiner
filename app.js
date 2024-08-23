@@ -1,4 +1,5 @@
 let diamonds = 0
+let minePower = 1
 
 let clickUpgrades = [
     {
@@ -32,7 +33,7 @@ let automaticUpgrades = [
 ]
 
 function mine() {
-    diamonds += 1;
+    diamonds = diamonds + minePower;
     drawDiamonds()
 }
 
@@ -46,7 +47,30 @@ function addPickaxe() {
     if (diamonds >= clickUpgrades[0].price) {
         diamonds -= clickUpgrades[0].price;
         clickUpgrades[0].quantity += 1;
-        console.log(clickUpgrades[0].quantity)
+        console.log(`you have ${clickUpgrades[0].quantity} pickaxes`)
         drawDiamonds()
     }
+    else {
+        alert(`not enough diamonds! You need ${clickUpgrades[0].price - diamonds} more for a pickaxe!`)
+    }
 }
+
+function addDrill() {
+    if (diamonds >= clickUpgrades[1].price) {
+        diamonds -= clickUpgrades[1].price;
+        clickUpgrades[1].quantity += 1;
+        console.log(`you have ${clickUpgrades[1].quantity} drills`)
+        drawDiamonds()
+    }
+    else {
+        alert(`not enough diamonds! You need ${clickUpgrades[1].price - diamonds} more for a drill!`)
+    }
+}
+
+function calcMinePower() {
+    minePower = clickUpgrades[0].quantity + (clickUpgrades[1].quantity * 10)
+    console.log(minePower)
+}
+
+// right now, calcMinePower works with console log, but if it is invoked at the bottom or within the mine function it breaks, we need to either replace mine() with the power or figure out how to integrate the two
+// per mick, there needs to be a function that calculates the mining strength (right now it is calcMinePower), adding/multiplying by quantity, and then a separate function that utilizes it (mine())
