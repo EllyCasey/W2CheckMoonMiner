@@ -1,0 +1,34 @@
+body {
+    /* background-image: url(https://staticg.sportskeeda.com/editor/2024/01/0249d-17067230817207-1920.jpg); */
+    background-image: url(https://wallpapers.com/images/hd/minecraft-great-cave-walls-forest-hd-mm9b3bqe6qc6s96f.jpg);
+}
+
+.incon-reg {
+    font-family: "Inconsolata", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.incon-bold {
+    font-family: "Inconsolata", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.mined-block {
+    width: 50%;
+}
+
+.small-box {
+    background-color: rgb(95, 93, 93);
+    color: whitesmoke;
+    margin-top: .5em;
+}
+
+.large-box {
+    background-color: gray;
+    color: whitesmoke;
+    padding-top: 1em;
+}

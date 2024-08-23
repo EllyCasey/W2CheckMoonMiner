@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Miner</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- ANCHOR Title -->
+    <header class="container-fluid">
+        <div class="row justify-content-center pt-3">
+            <div class="col-6 d-flex justify-content-center">
+                <h1 class="text-light incon-bold">⚒ MINE THE MINE ⚒</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ANCHOR clickable image -->
+        <section class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-8 d-flex justify-content-center">
+                    <img class="mined-block" src="diamond-block.png" alt="diamond block" onclick="mine()">
+                </div>
+            </div>
+        </section>
+
+        <!-- ANCHOR click counter, total resources, and interval counter -->
+        <section class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-2 small-box">
+                    <p><i class="mdi mdi-cursor-pointer"></i>0</p>
+                </div>
+                <div class="col-4 large-box">
+                    <i class="mdi mdi-pickaxe"></i>
+                    <span id="diamonds"></i>00</span>
+                </div>
+                <div class="col-2 small-box">
+                    <p><i class="mdi mdi-timer"></i>0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANCHOR upgrades section -->
+        <section class="container-fluid">
+            <div class="row large-box">
+                <!-- ANCHOR left half of upgrades (upgrades)-->
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Click Upgrades</p>
+                            <button>50 💎</button>
+                            <p>Pickaxe +1</p>
+                            <button>250 💎</button>
+                            <p>Drill +5</p>
+                        </div>
+                        <div class="col-6">
+                            <p>Automatic Upgrades</p>
+                            <button>1K 💎</button>
+                            <p>Dwarf +10/3s</p>
+                            <button>50K 💎</button>
+                            <p>Mine Cart +100/3s</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ANCHOR right half of upgrades (stats) -->
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Click Stats</p>
+                            <p><span>Owned#</span> Axes <i class="mdi mdi-arrow-right"></i><span>Power#</span></p>
+                            <p><span>Owned#</span> Drills <i class="mdi mdi-arrow-right"></i><span>Power#</span></p>
+                        </div>
+                        <div class="col-6">
+                            <p>Automatic Stats</p>
+                            <p><span>Owned#</span> Dwarves <i class="mdi mdi-timer"></i><span>Power#</span></p>
+                            <p><span>Owned#</span> Mine Carts <i class="mdi mdi-timer"></i><span>Power#</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+<script src="app.js"></script>
+
+</html>
