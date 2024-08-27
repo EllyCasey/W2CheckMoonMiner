@@ -61,12 +61,12 @@
                             <button onclick="addPickaxe()">50 💎</button>
                             <p>Pickaxe +1</p>
                             <button onclick="addDrill()">250 💎</button>
-                            <p>Drill +5</p>
+                            <p>Drill +10</p>
                         </div>
                         <div class="col-6">
                             <p>Automatic Upgrades</p>
                             <button onclick="addDwarf()">1K 💎</button>
-                            <p>Dwarf +10/3s</p>
+                            <p>Dwarf +100/3s</p>
                             <button onclick="addMineCart()">50K 💎</button>
                             <p>Mine Cart +1000/3s</p>
                         </div>
@@ -77,8 +77,10 @@
                     <div class="row">
                         <div class="col-6">
                             <p>Click Stats</p>
-                            <p><span>Owned#</span> Axes <i class="mdi mdi-arrow-right"></i><span>Power#</span></p>
-                            <p><span>Owned#</span> Drills <i class="mdi mdi-arrow-right"></i><span>Power#</span></p>
+                            <p><span id="pickaxeQuantity">0</span> Pickaxes <i class="mdi mdi-arrow-right"></i><span
+                                    id="pickaxePower">0</span> Power</p>
+                            <p><span id="drillQuantity">0</span> Drills <i class="mdi mdi-arrow-right"></i><span
+                                    id="drillPower">0</span> Power</p>
                         </div>
                         <div class="col-6">
                             <p>Automatic Stats</p>

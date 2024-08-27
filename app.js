@@ -49,14 +49,18 @@ function drawMinePower() {
 
 function drawAutoPower() {
     let autoPowerElem = document.getElementById('autoPower')
-    autoPowerElem.innerText = `${(automaticUpgrades[0].quantity * 10) + (automaticUpgrades[1].quantity * 1000)}`
+    autoPowerElem.innerText = `${(automaticUpgrades[0].quantity * 100) + (automaticUpgrades[1].quantity * 1000)}`
 }
 // the price of these upgrades needs to increase with each purchase 
 function addPickaxe() {
     if (diamonds >= clickUpgrades[0].price) {
         diamonds -= clickUpgrades[0].price;
         clickUpgrades[0].quantity += 1;
-        console.log(`you have ${clickUpgrades[0].quantity} pickaxes`)
+        //console.log(`you have ${clickUpgrades[0].quantity} pickaxes`)
+        let pickaxeQuantityElem = document.getElementById('pickaxeQuantity')
+        pickaxeQuantityElem.innerText = `${clickUpgrades[0].quantity}`
+        let pickaxePowerElem = document.getElementById('pickaxePower')
+        pickaxePowerElem.innerText = `${clickUpgrades[0].quantity}`
         drawDiamonds()
         calcMinePower()
         drawMinePower()
@@ -71,6 +75,10 @@ function addDrill() {
         diamonds -= clickUpgrades[1].price;
         clickUpgrades[1].quantity += 1;
         console.log(`you have ${clickUpgrades[1].quantity} drills`)
+        let drillQuantityElem = document.getElementById('drillQuantity')
+        drillQuantityElem.innerText = `${clickUpgrades[1].quantity}`
+        let drillPowerElem = document.getElementById('drillPower')
+        drillPowerElem.innerText = `${(clickUpgrades[1].quantity * 10)}`
         drawDiamonds()
         calcMinePower()
         drawMinePower()
@@ -82,7 +90,7 @@ function addDrill() {
 
 function dwarfBonus() {
     if (automaticUpgrades[0].quantity >= 1) {
-        diamonds += (10 * automaticUpgrades[0].quantity)
+        diamonds += (100 * automaticUpgrades[0].quantity)
         drawDiamonds()
     }
 }
@@ -125,7 +133,7 @@ function addMineCart() {
 
 // this should return the value so it can be used above in mine() function
 function calcMinePower() {
-    minePower = clickUpgrades[0].quantity + (clickUpgrades[1].quantity * 10)
+    minePower = 1 + clickUpgrades[0].quantity + (clickUpgrades[1].quantity * 10)
     console.log(minePower)
 }
 
