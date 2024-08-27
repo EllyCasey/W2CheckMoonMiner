@@ -106,7 +106,11 @@ function addDwarf() {
     if (diamonds >= automaticUpgrades[0].price) {
         diamonds -= automaticUpgrades[0].price;
         automaticUpgrades[0].quantity++;
-        console.log(`you have ${automaticUpgrades[0].quantity} Dwarves helping out!`)
+        let dwarfQuantityElem = document.getElementById('dwarfQuantity')
+        dwarfQuantityElem.innerText = `${automaticUpgrades[0].quantity}`
+        let dwarfPowerElem = document.getElementById('dwarfPower')
+        dwarfPowerElem.innerText = `${(automaticUpgrades[0].quantity * 100)}`
+        //console.log(`you have ${automaticUpgrades[0].quantity} Dwarves helping out!`)
         drawDiamonds()
         calcMinePower()
         drawAutoPower()
@@ -120,7 +124,11 @@ function addMineCart() {
     if (diamonds >= automaticUpgrades[1].price) {
         diamonds -= automaticUpgrades[1].price;
         automaticUpgrades[1].quantity++;
-        console.log(`you have ${automaticUpgrades[1].quantity} Mine Carts`)
+        let mineCartQuantityElem = document.getElementById('mineCartQuantity')
+        mineCartQuantityElem.innerText = `${automaticUpgrades[1].quantity}`
+        let mineCartPowerElem = document.getElementById('mineCartPower')
+        mineCartPowerElem.innerText = `${(automaticUpgrades[1].quantity * 1000)}`
+        //console.log(`you have ${automaticUpgrades[1].quantity} Mine Carts`)
         drawDiamonds()
         calcMinePower()
         drawAutoPower()
