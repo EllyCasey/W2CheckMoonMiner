@@ -31,7 +31,7 @@ let automaticUpgrades = [
     }
 
 ]
-
+// this function should run calcMinePower to get total bonus/multipliers 
 function mine() {
     diamonds = diamonds + minePower;
     drawDiamonds()
@@ -40,15 +40,26 @@ function mine() {
 function drawDiamonds() {
     let diamondsElem = document.getElementById('diamonds')
     diamondsElem.innerText = `${diamonds}`
-
 }
 
+function drawMinePower() {
+    let minePowerElem = document.getElementById('minePower')
+    minePowerElem.innerText = `${minePower}`
+}
+
+function drawAutoPower() {
+    let autoPowerElem = document.getElementById('autoPower')
+    autoPowerElem.innerText = `${(automaticUpgrades[0].quantity * 10) + (automaticUpgrades[1].quantity * 1000)}`
+}
+// the price of these upgrades needs to increase with each purchase 
 function addPickaxe() {
     if (diamonds >= clickUpgrades[0].price) {
         diamonds -= clickUpgrades[0].price;
         clickUpgrades[0].quantity += 1;
         console.log(`you have ${clickUpgrades[0].quantity} pickaxes`)
         drawDiamonds()
+        calcMinePower()
+        drawMinePower()
     }
     else {
         alert(`not enough diamonds! You need ${clickUpgrades[0].price - diamonds} more for a pickaxe!`)
@@ -61,16 +72,67 @@ function addDrill() {
         clickUpgrades[1].quantity += 1;
         console.log(`you have ${clickUpgrades[1].quantity} drills`)
         drawDiamonds()
+        calcMinePower()
+        drawMinePower()
     }
     else {
         alert(`not enough diamonds! You need ${clickUpgrades[1].price - diamonds} more for a drill!`)
     }
 }
 
+function dwarfBonus() {
+    if (automaticUpgrades[0].quantity >= 1) {
+        diamonds += (10 * automaticUpgrades[0].quantity)
+        drawDiamonds()
+    }
+}
+
+function mineCartBonus() {
+    if (automaticUpgrades[1].quantity >= 1) {
+        diamonds += (1000 * automaticUpgrades[1].quantity)
+        drawDiamonds()
+    }
+}
+
+function addDwarf() {
+    if (diamonds >= automaticUpgrades[0].price) {
+        diamonds -= automaticUpgrades[0].price;
+        automaticUpgrades[0].quantity++;
+        console.log(`you have ${automaticUpgrades[0].quantity} Dwarves helping out!`)
+        drawDiamonds()
+        calcMinePower()
+        drawAutoPower()
+    }
+    else {
+        alert(`not enough diamonds! you need ${automaticUpgrades[0].price - diamonds} more to hire another Dwarf!`)
+    }
+}
+
+function addMineCart() {
+    if (diamonds >= automaticUpgrades[1].price) {
+        diamonds -= automaticUpgrades[1].price;
+        automaticUpgrades[1].quantity++;
+        console.log(`you have ${automaticUpgrades[1].quantity} Mine Carts`)
+        drawDiamonds()
+        calcMinePower()
+        drawAutoPower()
+    }
+    else {
+        alert(`not enough diamonds! you need ${automaticUpgrades[1].price - diamonds} more for a mine cart`)
+    }
+}
+
+
+// this should return the value so it can be used above in mine() function
 function calcMinePower() {
     minePower = clickUpgrades[0].quantity + (clickUpgrades[1].quantity * 10)
     console.log(minePower)
 }
 
+
+
+
+setInterval(dwarfBonus, 3000)
+setInterval(mineCartBonus, 3000)
 // right now, calcMinePower works with console log, but if it is invoked at the bottom or within the mine function it breaks, we need to either replace mine() with the power or figure out how to integrate the two
 // per mick, there needs to be a function that calculates the mining strength (right now it is calcMinePower), adding/multiplying by quantity, and then a separate function that utilizes it (mine())

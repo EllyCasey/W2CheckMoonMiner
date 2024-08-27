@@ -38,14 +38,14 @@
         <section class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-2 small-box">
-                    <p><i class="mdi mdi-cursor-pointer"></i>0</p>
+                    <i class="mdi mdi-cursor-pointer"></i><span id="minePower"></span>
                 </div>
                 <div class="col-4 large-box">
                     <i class="mdi mdi-pickaxe"></i>
                     <span id="diamonds"></i>00</span>
                 </div>
                 <div class="col-2 small-box">
-                    <p><i class="mdi mdi-timer"></i>0</p>
+                    <i class="mdi mdi-timer"></i><span id="autoPower">0</span><span>/3s</span>
                 </div>
             </div>
         </section>
@@ -65,10 +65,10 @@
                         </div>
                         <div class="col-6">
                             <p>Automatic Upgrades</p>
-                            <button>1K 💎</button>
+                            <button onclick="addDwarf()">1K 💎</button>
                             <p>Dwarf +10/3s</p>
-                            <button>50K 💎</button>
-                            <p>Mine Cart +100/3s</p>
+                            <button onclick="addMineCart()">50K 💎</button>
+                            <p>Mine Cart +1000/3s</p>
                         </div>
                     </div>
                 </div>
